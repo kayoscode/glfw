@@ -554,6 +554,23 @@ GLFWAPI struct wl_output* glfwGetWaylandMonitor(GLFWmonitor* monitor);
  *  @ingroup native
  */
 GLFWAPI struct wl_surface* glfwGetWaylandWindow(GLFWwindow* window);
+
+/*! @brief Returns the main `struct xdg_surface*` of the specified window.
+ *
+ *  @return The main `struct wl_surface*` of the specified window, or `NULL` if
+ *  an [error](@ref error_handling) occurred.
+ *
+ *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
+ *  GLFW_PLATFORM_UNAVAILABLE.
+ *
+ *  @thread_safety This function may be called from any thread.  Access is not
+ *  synchronized.
+ *
+ *  @since Added in version 3.4 from bryce.
+ *
+ *  @ingroup native
+ */
+GLFWAPI struct xdg_surface* glfwGetWaylandXdgWindow(GLFWwindow* window);
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_EGL)

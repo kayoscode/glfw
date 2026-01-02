@@ -3375,5 +3375,26 @@ GLFWAPI struct wl_surface* glfwGetWaylandWindow(GLFWwindow* handle)
     return window->wl.surface;
 }
 
+
+GLFWAPI struct xdg_surface* glfwGetWaylandXdgWindow(GLFWwindow* handle)
+{
+    _GLFWwindow* window = (_GLFWwindow*) handle;
+    _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
+
+    if (_glfw.platform.platformID != GLFW_PLATFORM_WAYLAND)
+    {
+        _glfwInputError(GLFW_PLATFORM_UNAVAILABLE,
+                        "Wayland: Platform not initialized");
+        return NULL;
+    }
+
+    if (_glfw.wl.libdecor.context)
+    {
+        assert(false);
+    }
+
+    return window->wl.xdg.surface;
+}
+
 #endif // _GLFW_WAYLAND
 
